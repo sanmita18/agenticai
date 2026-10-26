@@ -1,0 +1,15 @@
+cd ~/project-maven
+
+java -version
+mvn -version
+
+cat pom.xml
+cat src/main/java/com/example/App.java
+
+mvn package
+
+ls -l target/
+
+java -cp target/classes com.example.App
+
+jar tf target/project-maven-1.0.jar
