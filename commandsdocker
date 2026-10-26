@@ -1,0 +1,16 @@
+sudo dnf install docker -y
+
+sudo systemctl start docker
+
+sudo systemctl enable docker
+
+sudo systemctl status docker
+# Press q to exit
+
+docker --version
+
+sudo docker run hello-world
+
+sudo docker ps -a
+
+sudo docker images
