@@ -1,0 +1,8 @@
+cd ~/my-webapp
+git status
+git log --oneline
+git branch -a
+git checkout master
+git pull
+cat index.html
+git status
