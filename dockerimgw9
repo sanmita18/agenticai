@@ -1,0 +1,92 @@
+# WEEK 9 - Docker Image to AWS ECR
+
+cd ~/week9
+
+cat Dockerfile
+
+sudo docker build -t week9-repo .
+
+sudo docker images
+
+sudo docker run --rm week9-repo:latest
+
+sudo docker tag week9-repo:latest 879343933306.dkr.ecr.ap-south-1.amazonaws.com/week9-repo:latest
+
+aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 879343933306.dkr.ecr.ap-south-1.amazonaws.com
+
+sudo docker push 879343933306.dkr.ecr.ap-south-1.amazonaws.com/week9-repo:latest
+
+
+
+
+
+
+# WEEK 9 – Create and Push Docker Image to AWS ECR
+
+## 1. Navigate to the project directory
+
+```bash
+cd ~/week9
+```
+
+## 2. Display the Dockerfile
+
+```bash
+cat Dockerfile
+```
+
+## 3. Build the Docker image
+
+```bash
+sudo docker build -t week9-repo .
+```
+
+## 4. List Docker images
+
+```bash
+sudo docker images
+```
+
+## 5. Run the Docker image and show output
+
+```bash
+sudo docker run --rm week9-repo:latest
+```
+
+Expected output:
+
+```text
+Week 9 - Docker image pushed to AWS ECR successfully!
+```
+
+## 6. Tag the image for AWS ECR
+
+```bash
+sudo docker tag week9-repo:latest 879343933306.dkr.ecr.ap-south-1.amazonaws.com/week9-repo:latest
+```
+
+## 7. Authenticate with AWS ECR
+
+```bash
+aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 879343933306.dkr.ecr.ap-south-1.amazonaws.com
+```
+
+Expected output: `Login Succeeded`
+
+## 8. Push the image to AWS ECR
+
+```bash
+sudo docker push 879343933306.dkr.ecr.ap-south-1.amazonaws.com/week9-repo:latest
+```
+
+Expected result: image layers are pushed and a digest is displayed.
+
+## 9. Verify the image
+
+Open AWS Console → Amazon ECR → Private registry → Repositories → `week9-repo`.
+
+Verify that the image tag `latest` is present and its status is Active.
+
+## Result
+
+Successfully created a Docker image and pushed it to Amazon Elastic Container Registry (ECR).
