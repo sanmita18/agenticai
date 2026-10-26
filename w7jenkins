@@ -1,0 +1,24 @@
+# WEEK 7 - JENKINS INSTALLATION AND CONFIGURATION
+
+# 1. Check Java
+java -version
+
+# 2. Check Maven
+mvn -version
+
+# 3. Check Jenkins service
+sudo systemctl status jenkins
+
+# Press q to exit
+
+# 4. Start Jenkins if it is not running
+sudo systemctl start jenkins
+
+# 5. Check Jenkins is active
+sudo systemctl is-active jenkins
+
+# 6. Check port 8080
+sudo ss -lntp | grep 8080
+
+# 7. Check Docker is available (if needed for other labs)
+sudo systemctl is-active docker
