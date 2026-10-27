@@ -1,0 +1,86 @@
+Cloud & DevOps Lab — Weeks 6–10
+
+Week 6: Maven
+
+Aim: Build a Java project using Maven.
+
+java -version
+mvn -version
+cd ~/project-maven
+cat pom.xml
+cat src/main/java/com/example/App.java
+mvn compile
+mvn package
+ls -lh target/
+java -cp target/classes com.example.App
+
+Result to show: "BUILD SUCCESS", generated JAR file, and Java program output.
+
+Week 7: Jenkins
+
+Aim: Install Jenkins and execute a build job.
+
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+java -version
+mvn -version
+
+Browser: Open "http://YOUR-EC2-PUBLIC-IP:8080/" → "jenkins1" → Build Now → Console Output.
+
+Result to show: "Finished: SUCCESS".
+
+Week 8: Docker
+
+Aim: Install Docker and run a container.
+
+docker --version
+sudo systemctl start docker
+sudo systemctl status docker
+sudo docker run hello-world
+sudo docker images
+sudo docker ps -a
+sudo docker info
+
+Result to show: "Hello from Docker!", the image listing, and the container status.
+
+Week 9: AWS ECR
+
+Aim: Build a Docker image and push it to Amazon ECR.
+
+cd ~/week9
+cat Dockerfile
+sudo docker build -t week9-repo .
+sudo docker tag week9-repo:latest 879343933306.dkr.ecr.ap-south-1.amazonaws.com/week9-repo:latest
+aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 879343933306.dkr.ecr.ap-south-1.amazonaws.com
+sudo docker push 879343933306.dkr.ecr.ap-south-1.amazonaws.com/week9-repo:latest
+sudo docker images
+
+Result to show: AWS Console → ECR → "week9-repo" → Images → "latest".
+
+Week 10: AWS CodeCommit
+
+Aim: Use Git to commit, push, branch, and merge code.
+
+cd ~/my-webapp
+git status
+git log --oneline
+git branch -a
+git checkout master
+git pull
+cat index.html
+git status
+
+Result to show: Commit history, branches, merged pull request, and "Congratulations V3" in "index.html".
+
+---
+
+Final Result Summary
+
+Week| Successful result
+6| Maven build and Java execution
+7| Jenkins build successful
+8| Docker container executed
+9| Docker image pushed to AWS ECR
+10| CodeCommit changes merged successfully
+
+Note: Replace "YOUR-EC2-PUBLIC-IP" with your instance's current public IP. These commands assume the projects and services have already been configured. Avoid repeating setup steps unless necessary.
