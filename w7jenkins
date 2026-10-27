@@ -1,5 +1,8 @@
 # WEEK 7 - JENKINS INSTALLATION AND CONFIGURATION
 
+username sanmita
+pass Sanmitakn@2024
+
 # 1. Check Java
 java -version
 
