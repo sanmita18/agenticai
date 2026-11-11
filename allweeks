@@ -4,15 +4,17 @@ Week 6: Maven
 
 Aim: Build a Java project using Maven.
 
+
 java -version
 mvn -version
 cd ~/project-maven
 cat pom.xml
-cat src/main/java/com/example/App.java
-mvn compile
-mvn package
+cat src/main/java/App.java
+mvn clean package
 ls -lh target/
-java -cp target/classes com.example.App
+java -cp target/classes App
+
+
 
 Result to show: "BUILD SUCCESS", generated JAR file, and Java program output.
 
